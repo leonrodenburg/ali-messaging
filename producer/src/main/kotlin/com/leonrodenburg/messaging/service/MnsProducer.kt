@@ -17,7 +17,7 @@ class MnsProducer(private val queue: CloudQueue, private val topic: CloudTopic) 
 
     @Scheduled(fixedDelay = 12000)
     fun produceMessageOnTopic() {
-        logger.info("Publishing message on topic...")
+        logger.info("Publishing on topic...")
 
         val message = Base64TopicMessage()
         message.messageBody = "Topic message $topicMessageCount"
@@ -28,7 +28,7 @@ class MnsProducer(private val queue: CloudQueue, private val topic: CloudTopic) 
 
     @Scheduled(fixedDelay = 5000)
     fun produceMessageOnQueue() {
-        logger.info("Publishing message on queue...")
+        logger.info("Publishing on queue...")
 
         val message = Message()
         message.setMessageBody("Queue message $queueMessageCount", BASE64)
