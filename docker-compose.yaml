@@ -9,7 +9,6 @@ services:
       - credentials.env
     environment:
       - ALICLOUD_QUEUE_NAME=Consumer1
-      - SPRING_PROFILE=default
   consumer-2:
     image: ali-messaging-consumer
     ports:
@@ -18,7 +17,6 @@ services:
       - credentials.env
     environment:
       - ALICLOUD_QUEUE_NAME=Consumer2
-      - SPRING_PROFILE=default
   consumer-3:
     image: ali-messaging-consumer
     ports:
@@ -27,7 +25,6 @@ services:
       - credentials.env
     environment:
       - ALICLOUD_QUEUE_NAME=Consumer3
-      - SPRING_PROFILE=default
   producer:
     build: producer/
     env_file:
@@ -35,4 +32,3 @@ services:
     environment:
       - ALICLOUD_QUEUE_NAME=Consumer2
       - ALICLOUD_TOPIC_NAME=AllConsumers
-      - SPRING_PROFILE=default

@@ -15,7 +15,7 @@ class MnsProducer(private val queue: CloudQueue, private val topic: CloudTopic) 
     private var topicMessageCount = 1
     private var queueMessageCount = 1
 
-    @Scheduled(fixedDelay = 12000)
+    @Scheduled(fixedDelay = 12000, initialDelay = 12000)
     fun produceMessageOnTopic() {
         logger.info("Publishing on topic...")
 
@@ -26,7 +26,7 @@ class MnsProducer(private val queue: CloudQueue, private val topic: CloudTopic) 
         topicMessageCount++
     }
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 5000, initialDelay = 5000)
     fun produceMessageOnQueue() {
         logger.info("Publishing on queue...")
 
