@@ -4,7 +4,6 @@ import com.aliyun.mns.client.CloudQueue
 import com.aliyun.mns.client.CloudTopic
 import com.aliyun.mns.model.Base64TopicMessage
 import com.aliyun.mns.model.Message
-import com.aliyun.mns.model.Message.MessageBodyType.*
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
@@ -31,7 +30,7 @@ class MnsProducer(private val queue: CloudQueue, private val topic: CloudTopic) 
         logger.info("Publishing on queue...")
 
         val message = Message()
-        message.setMessageBody("Queue message $queueMessageCount", BASE64)
+        message.setMessageBody("Queue message $queueMessageCount", Message.MessageBodyType.BASE64)
         queue.putMessage(message)
 
         queueMessageCount++
