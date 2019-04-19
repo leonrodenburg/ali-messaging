@@ -17,3 +17,18 @@ services:
       - credentials.env
     environment:
       - ALICLOUD_QUEUE_NAME=Consumer2
+  consumer-3:
+    image: ali-messaging-consumer
+    ports:
+      - 8082:8080
+    env_file:
+      - credentials.env
+    environment:
+      - ALICLOUD_QUEUE_NAME=Consumer3
+  producer:
+    build: producer/
+    env_file:
+      - credentials.env
+    environment:
+      - ALICLOUD_QUEUE_NAME=Consumer2
+      - ALICLOUD_TOPIC_NAME=AllConsumers

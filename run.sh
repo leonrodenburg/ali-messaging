@@ -1,7 +1,9 @@
 #!/bin/bash
+set -e
+
 for d in */ ; do
     cd $d
-    mvn clean package
+    mvn package
     cd ..
 done
 
