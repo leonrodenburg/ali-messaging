@@ -1,0 +1,19 @@
+version: "3"
+services:
+  consumer-1:
+    build: consumer/
+    image: ali-messaging-consumer
+    ports:
+      - 8080:8080
+    env_file:
+      - credentials.env
+    environment:
+      - ALICLOUD_QUEUE_NAME=Consumer1
+  consumer-2:
+    image: ali-messaging-consumer
+    ports:
+      - 8081:8080
+    env_file:
+      - credentials.env
+    environment:
+      - ALICLOUD_QUEUE_NAME=Consumer2
